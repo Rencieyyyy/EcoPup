@@ -643,7 +643,7 @@ body.nav-open{
 .process-steps{
   margin-top:28px;
   display:grid;
-  grid-template-columns:repeat(5,1fr);
+  grid-template-columns:repeat(3,1fr);
   gap:20px;
 }
 .process-card{
@@ -1125,6 +1125,7 @@ body.nav-open{
 }
 
 @media (max-width:900px){
+  .process-steps{grid-template-columns:repeat(2,1fr);}
   .promise-grid{grid-template-columns:repeat(2,1fr);}
   .about-intro{flex-direction:column;}
   .about-block{flex-direction:column;}

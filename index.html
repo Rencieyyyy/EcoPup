@@ -7,6 +7,7 @@
 <link rel="icon" type="image/x-icon" href="PBLogo.jfif">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -242,51 +243,83 @@
     </div>
 
     <div class="process-block reveal">
-      <span class="section-eyebrow">Our Process</span>
-      <h2>How It's Made</h2>
-      <div class="process-steps">
-        <div class="process-card">
-          <div class="process-num">1</div>
-          <div class="process-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3c3 4 5 6.5 5 9.5A5 5 0 017 12.5C7 9.5 9 7 12 3z"/></svg>
-          </div>
-          <h3>Washing</h3>
-          <p>Fresh potatoes, carrots, and cabbage are thoroughly rinsed to remove dirt and impurities.</p>
-        </div>
-        <div class="process-card">
-          <div class="process-num">2</div>
-          <div class="process-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 5l13 13M17 5L4 18M9 5h2M13 19h2"/></svg>
-          </div>
-          <h3>Cutting</h3>
-          <p>Vegetables are sliced into uniform pieces to cook evenly and blend well.</p>
-        </div>
-        <div class="process-card">
-          <div class="process-num">3</div>
-          <div class="process-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 10h14l-1.5 8a2 2 0 01-2 1.7H8.5A2 2 0 016.5 18z"/><path d="M9 10V6a3 3 0 016 0v4"/></svg>
-          </div>
-          <h3>Mixing</h3>
-          <p>Chopped vegetables are blended together into a nutrient-rich, well-balanced mix.</p>
-        </div>
-        <div class="process-card">
-          <div class="process-num">4</div>
-          <div class="process-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="7"/><path d="M12 8v4l3 2"/></svg>
-          </div>
-          <h3>Shaping</h3>
-          <p>The mixture is formed into bite-sized pieces that are just right for every pup.</p>
-        </div>
-        <div class="process-card">
-          <div class="process-num">5</div>
-          <div class="process-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M4 12h16M12 8v12"/></svg>
-          </div>
-          <h3>Packaging</h3>
-          <p>Sealed fresh in compostable packaging, ready to ship straight to your pup's bowl.</p>
-        </div>
+  <span class="section-eyebrow">Our Process</span>
+  <h2>How It's Made</h2>
+  <div class="process-steps">
+    <div class="process-card">
+      <div class="process-num">1</div>
+      <div class="process-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
       </div>
+      <h3>Preparation</h3>
+      <p>Ingredients are gathered and sorted to make sure only the freshest make the cut.</p>
     </div>
+    <div class="process-card">
+      <div class="process-num">2</div>
+      <div class="process-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3c3 4 5 6.5 5 9.5A5 5 0 017 12.5C7 9.5 9 7 12 3z"/></svg>
+      </div>
+      <h3>Washing</h3>
+      <p>Fresh potatoes, carrots, and cabbage are thoroughly rinsed to remove dirt and impurities.</p>
+    </div>
+    <div class="process-card">
+      <div class="process-num">3</div>
+      <div class="process-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 5l13 13M17 5L4 18M9 5h2M13 19h2"/></svg>
+      </div>
+      <h3>Cutting</h3>
+      <p>Vegetables are sliced into uniform pieces to cook evenly and blend well.</p>
+    </div>
+    <div class="process-card">
+      <div class="process-num">4</div>
+      <div class="process-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3h12v4a6 6 0 01-12 0V3z"/><path d="M9 15h6l-1 5H10l-1-5z"/><path d="M4 3h2M18 3h2"/></svg>
+      </div>
+      <h3>Cooking</h3>
+      <p>The vegetables are gently cooked to lock in nutrients while staying easy to digest.</p>
+    </div>
+    <div class="process-card">
+      <div class="process-num">5</div>
+      <div class="process-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="3"/><path d="M7 21v-3a5 5 0 0110 0v3"/><path d="M12 11v4"/></svg>
+      </div>
+      <h3>Grinding</h3>
+      <p>Cooked vegetables are ground down into a fine, even texture pups can easily chew.</p>
+    </div>
+    <div class="process-card">
+      <div class="process-num">6</div>
+      <div class="process-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 10h14l-1.5 8a2 2 0 01-2 1.7H8.5A2 2 0 016.5 18z"/><path d="M9 10V6a3 3 0 016 0v4"/></svg>
+      </div>
+      <h3>Mixing</h3>
+      <p>Ground vegetables are blended together into a nutrient-rich, well-balanced mix.</p>
+    </div>
+    <div class="process-card">
+      <div class="process-num">7</div>
+      <div class="process-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v2M12 19v2M4 12H2M22 12h-2"/><circle cx="12" cy="12" r="4"/><path d="M6 6l1.5 1.5M16.5 16.5L18 18M18 6l-1.5 1.5M7.5 16.5L6 18"/></svg>
+      </div>
+      <h3>Scaling</h3>
+      <p>Each batch is precisely weighed and portioned for consistent nutrition in every bite.</p>
+    </div>
+    <div class="process-card">
+      <div class="process-num">8</div>
+      <div class="process-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>
+      </div>
+      <h3>Quality Check</h3>
+      <p>Every batch is inspected to make sure it meets our standards for freshness and safety.</p>
+    </div>
+    <div class="process-card">
+      <div class="process-num">9</div>
+      <div class="process-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M4 12h16M12 8v12"/></svg>
+      </div>
+      <h3>Packaging</h3>
+      <p>Sealed fresh in compostable packaging, ready to ship straight to your pup's bowl.</p>
+    </div>
+  </div>
+</div>
 
   </div>
 </section>
@@ -337,7 +370,7 @@
         <div class="achievement-text">
           <span class="section-eyebrow">Our Achievement</span>
           <h3>Recognized for Sustainable Pet Nutrition</h3>
-          <p>Proud to be honored for our commitment to healthy, vegetable-based dog treats made with care for pets and the planet.</p>
+          <p>Proud to be honored for our commitment to healthy, vegetable-based dog food made with care for pets and the planet.</p>
         </div>
       </div>
 
