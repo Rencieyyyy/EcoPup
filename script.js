@@ -54,8 +54,8 @@ if (revealEls.length) {
   revealEls.forEach(el => observer.observe(el));
 }
 
-// Contact form → opens Gmail pre-filled
-emailjs.init("YOUR_PUBLIC_KEY");
+// EmailJS init
+emailjs.init("i1Lb8640yMSpVYeUz");
 
 // Contact form → sends silently via EmailJS
 const contactForm = document.getElementById('contactForm');
@@ -77,7 +77,7 @@ if (contactForm) {
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
 
-    emailjs.send('service_oj04jki', 'YOUR_TEMPLATE_ID', templateParams)
+    emailjs.send('service_oj04jki', 'template_70rxi44', templateParams)
       .then(function() {
         submitBtn.textContent = 'Message Sent! ✓';
         form.reset();
@@ -94,6 +94,7 @@ if (contactForm) {
       });
   });
 }
+
 // Sale popup — shows once per session, a couple seconds after load
 const saleOverlay = document.getElementById('saleOverlay');
 const saleClose = document.getElementById('saleClose');
