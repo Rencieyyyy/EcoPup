@@ -55,30 +55,70 @@ if (revealEls.length) {
 }
 
 // Contact form → opens Gmail pre-filled
+emailjs.init("YOUR_PUBLIC_KEY");
+
+// Contact form → sends silently via EmailJS
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   contactForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
     const form = e.target;
-    const name = form.name.value.trim();
-    const contact = form.contact.value.trim();
-    const quantity = form.quantity.value.trim();
-    const message = form.message.value.trim();
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.textContent;
 
-    const subject = `Order/Inquiry from ${name}`;
-    const body =
-      `Name: ${name}\n` +
-      `Contact Number / Email: ${contact}\n` +
-      (quantity ? `Quantity: ${quantity}\n` : '') +
-      `Message: ${message}`;
+    const templateParams = {
+      from_name: form.name.value.trim(),
+      contact: form.contact.value.trim(),
+      quantity: form.quantity.value.trim() || 'Not specified',
+      message: form.message.value.trim()
+    };
 
-    const gmailURL =
-      `https://mail.google.com/mail/?view=cm&fs=1` +
-      `&to=ecopupawfectbites@gmail.com` +
-      `&su=${encodeURIComponent(subject)}` +
-      `&body=${encodeURIComponent(body)}`;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
 
-    window.open(gmailURL, '_blank');
+    emailjs.send('service_oj04jki', 'YOUR_TEMPLATE_ID', templateParams)
+      .then(function() {
+        submitBtn.textContent = 'Message Sent! ✓';
+        form.reset();
+        setTimeout(() => {
+          submitBtn.textContent = originalBtnText;
+          submitBtn.disabled = false;
+        }, 3000);
+      })
+      .catch(function(error) {
+        console.error('EmailJS error:', error);
+        submitBtn.textContent = 'Failed — try again';
+        submitBtn.disabled = false;
+        setTimeout(() => { submitBtn.textContent = originalBtnText; }, 3000);
+      });
+  });
+}
+// Sale popup — shows once per session, a couple seconds after load
+const saleOverlay = document.getElementById('saleOverlay');
+const saleClose = document.getElementById('saleClose');
+const saleCta = document.getElementById('saleCta');
+
+if (saleOverlay) {
+  const alreadyShown = sessionStorage.getItem('saleShown');
+
+  if (!alreadyShown) {
+    setTimeout(() => {
+      saleOverlay.classList.add('active');
+      sessionStorage.setItem('saleShown', 'true');
+    }, 2000);
+  }
+
+  function closeSalePopup(){
+    saleOverlay.classList.remove('active');
+  }
+
+  saleClose.addEventListener('click', closeSalePopup);
+  saleOverlay.addEventListener('click', (e) => {
+    if (e.target === saleOverlay) closeSalePopup();
+  });
+  saleCta.addEventListener('click', closeSalePopup);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeSalePopup();
   });
 }
